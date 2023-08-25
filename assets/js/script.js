@@ -9307,25 +9307,60 @@ const ddMonsters = [
 
 //functions
 //create clone of html tempplate
-function createTemplateClone(template) {
-  const clone = monsterCardTemplate.content.cloneNode(true);
-  return clone;
+function createTemplateClone(templateToClone) {
+  const clonedTemplate = templateToClone.content.cloneNode(true);
+  return clonedTemplate;
 }
 
 //Object elements to insert in the card (testing with the first element)
-const monsterBaseConPoints = ddMonsters[0].CON;
-const monsterName = ddMonsters[0].name;
-const monsterImg = ddMonsters[0].img_url;
+//attributes selected: name, strenght, con, img
+let counter = 0;
+
+/* const attributes = [0, 3, 7, 22]; */
+const monsterName = ddMonsters[counter].name;
+const monsterBaseStrPoints = ddMonsters[counter].STR;
+const monsterBaseConPoints = ddMonsters[counter].CON;
+const monsterImg = ddMonsters[counter].img_url;
+const monsterName1 = ddMonsters[1].name;
+const monsterImg1 = ddMonsters[1].img_url;
 
 //card elements
 const cardsContainer = document.getElementById("cards-container");
-//bring template
+//bring html template
 const monsterCardTemplate = document.getElementById("monster-card-template");
 
-//bring name element
-const cardMonsterName = createTemplateClone(monsterCardTemplate).getElementById("monster-name");
+//clone and bring template element
 
-//asign object content to html element
+const cardMonsterName = createTemplateClone(monsterCardTemplate).getElementById("monster-name");
+const cardMonsterImg = createTemplateClone(monsterCardTemplate).getElementById("monster-image");
+const cardMonsterStr = createTemplateClone(monsterCardTemplate).getElementById("str-points");
+
+//asign object to template element
 cardMonsterName.innerHTML = monsterName;
-console.log(cardMonsterName.innerHTML);
+cardMonsterImg.src = monsterImg;
+cardMonsterStr.innerHTML = monsterBaseStrPoints;
+console.log(monsterBaseStrPoints);
+
+//instert template element to document
 cardsContainer.appendChild(cardMonsterName);
+cardsContainer.appendChild(cardMonsterImg);
+cardsContainer.appendChild(cardMonsterStr);
+
+function insertDataOnCard(data, htmlTemplate, templateElement, elementType, cardContainer) {
+  if (elementType === "img") {
+    const img = createTemplateClone(htmlTemplate).getElementById(templateElement);
+    img.src = data;
+    cardContainer.appendChild(img);
+  } else {
+    const elem = createTemplateClone(htmlTemplate).getElementById(templateElement);
+    elem.innerHTML = data;
+    cardContainer.appendChild(elem);
+  }
+}
+
+for (monster in ddMonsters) {
+  const monsterNameX = ddMonsters[monster].name;
+  const monsterImgX = ddMonsters[monster].img_url;
+  insertDataOnCard(monsterNameX, monsterCardTemplate, "monster-name", "h1", cardsContainer);
+  insertDataOnCard(monsterImgX, monsterCardTemplate, "monster-image", "img", cardsContainer);
+}

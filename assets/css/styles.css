@@ -26,3 +26,7 @@ aside {
 input {
   max-width: 30px;
 }
+
+#monster-image {
+  width: 300px;
+}
