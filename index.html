@@ -1,0 +1,44 @@
+<!-- Hola profe -->
+<!-- en este trabajo voy a usar el json de este repo: -->
+<!-- https://gist.github.com/tkfu/9819e4ac6d529e225e9fc58b358c3479#file-srd_5e_monsters-json -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="app-icon">icon</div>
+      <h1 class=".app-title">Nav bar</h1>
+      <div class="menu-nav-bar">menu</div>
+    </header>
+    <aside>
+      <h2>filter menu</h2>
+      <div class="filters-container">
+        <label for="filtro1">filtro1</label>
+        <input type="text" id="filtro1" />
+        <label for="filtro2">filtro2</label>
+        <input type="text" id="filtro2" />
+        <label for="filtro3">filtro3</label>
+        <input type="text" id="filtro3" />
+      </div>
+    </aside>
+    <main>
+      <h2>cards containter</h2>
+      <div id="cards-container"></div>
+      <template id="monster-card-template">
+        <div>
+          <p><span id="remaining-con-points">18</span><span id="base-con-points">18</span></p>
+          <h1 id="monster-name">monster Name</h1>
+          <img id="monster-image" src="" alt="" />
+        </div>
+      </template>
+    </main>
+    <footer>GG.inc. All rights reserved</footer>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

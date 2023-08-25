@@ -1,0 +1,28 @@
+header,
+aside,
+main,
+footer {
+  border: 1px solid black;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "aside"
+    "main"
+    "footer";
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+aside {
+  border: 1px solid black;
+}
+
+input {
+  max-width: 30px;
+}
