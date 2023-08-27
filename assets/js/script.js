@@ -9333,13 +9333,27 @@ const cardsContainer = document.getElementById("cards-container");
 //bring html template
 const monsterCardTemplate = document.getElementById("monster-card-template");
 
+//bring inputs for button usage and filtering
+const btn = document.getElementById("input-button");
+const letterFilter = document.getElementById("first-letter-filter");
+const conFilter = document.getElementById("CON-filter");
+const strFilter = document.getElementById("STR-filter");
+
 for (monster in ddMonsters) {
   const monsterName = ddMonsters[monster].name;
   const monsterImg = ddMonsters[monster].img_url;
   const monsterStr = ddMonsters[monster].STR;
   const monsterCon = ddMonsters[monster].CON;
-  insertDataOnCard(monsterName, monsterCardTemplate, "monster-name", "h1", cardsContainer);
-  insertDataOnCard(monsterImg, monsterCardTemplate, "monster-image", "img", cardsContainer);
-  insertDataOnCard(monsterStr, monsterCardTemplate, "str-points", "span", cardsContainer);
-  insertDataOnCard(monsterCon, monsterCardTemplate, "con-points", "span", cardsContainer);
+  //crear div de la card
+  const cardDiv = createTemplateClone(monsterCardTemplate).getElementById("div-card-template");
+  cardsContainer.appendChild(cardDiv);
+  insertDataOnCard(monsterName, monsterCardTemplate, "monster-name", "h1", cardDiv);
+  insertDataOnCard(monsterImg, monsterCardTemplate, "monster-image", "img", cardDiv);
+  insertDataOnCard(monsterStr, monsterCardTemplate, "str-points", "span", cardDiv);
+  insertDataOnCard(monsterCon, monsterCardTemplate, "con-points", "span", cardDiv);
+  console.log(monsterName[0]);
 }
+
+btn.addEventListener("click", () => {
+  cardContainer = "";
+});

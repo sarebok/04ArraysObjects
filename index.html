@@ -13,32 +13,33 @@
   <body>
     <header>
       <div class="app-icon">icon</div>
-      <h1 class=".app-title">D&D Monsters</h1>
+      <h1 class="app-title">D&D Monsters</h1>
       <div class="menu-nav-bar">menu</div>
     </header>
     <aside>
       <h2>filter menu</h2>
       <div class="filters-container">
-        <label for="filtro1">filtro1</label>
-        <input type="text" id="filtro1" />
-        <label for="filtro2">filtro2</label>
-        <input type="text" id="filtro2" />
-        <label for="filtro3">filtro3</label>
-        <input type="text" id="filtro3" />
+        <label for="first-letter-filter">First Letter Name</label>
+        <input type="text" id="first-letter-filter" />
+        <label for="CON-filter">Min Constitution</label>
+        <input type="text" id="CON-filter" />
+        <label for="STR-filter">Min Strength</label>
+        <input type="text" id="STR-filter" />
+        <button id="input-button">Go!</button>
       </div>
     </aside>
     <main>
       <h2>cards containter</h2>
-      <div id="cards-container"></div>
-      <template id="monster-card-template">
-        <div>
-          <p><span id="remaining-con-points">18</span><span id="base-con-points">18</span></p>
-          <h1 id="monster-name">monster Name</h1>
-          <img id="monster-image" src="" alt="" />
-          <p><span id="str-points">18</span></p>
-          <p><span id="con-points">18</span></p>
-        </div>
-      </template>
+      <div id="cards-container">
+        <template id="monster-card-template">
+          <div id="div-card-template">
+            <h1 id="monster-name"></h1>
+            <p id="con-points"></p>
+            <img id="monster-image" src="" alt="" />
+            <p id="str-points"></p>
+          </div>
+        </template>
+      </div>
     </main>
     <footer>GG.inc. All rights reserved</footer>
     <script src="./assets/js/script.js"></script>
