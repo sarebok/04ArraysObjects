@@ -9342,7 +9342,7 @@ btn.addEventListener("click", () => {
 function createCard(i) {
   const div = document.createElement("div");
   div.innerHTML = `
-  <P>${i.name}</P>
+  <P class="monster-name">${i.name}</P>
   <img class="monster-image" src=${i.img_url}>
   <p>dex ${i.DEX}</p>
   <p>str ${i.STR}</p>

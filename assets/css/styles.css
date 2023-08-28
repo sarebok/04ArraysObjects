@@ -71,11 +71,20 @@ footer {
 #monster-name {
   grid-area: name;
 }
+
+.monster-name {
+  font-weight: 900;
+  color: #030303;
+}
 #con-points {
   grid-area: CON;
 }
 .monster-image {
   grid-area: img;
+  border-radius: 10%;
+  border: 1px solid #290000;
+  width: 200px;
+  height: 200px;
 }
 #str-points {
   grid-area: str;
@@ -87,9 +96,6 @@ input {
 
 #monster-name {
   font-size: 1.5rem;
-}
-.monster-image {
-  width: 200px;
 }
 
 @media (min-width: 576px) {
