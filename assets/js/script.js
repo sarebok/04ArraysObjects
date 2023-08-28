@@ -9310,11 +9310,13 @@ const cardsContainer = document.getElementById("cards-container");
 const dexFilter = document.getElementById("dex-filter");
 const conFilter = document.getElementById("con-filter");
 const strFilter = document.getElementById("str-filter");
+let cardCounter = document.getElementById("card-counter");
 
 //recorro el array de los monstruos de dd
 for (let ddmonster of ddMonsters) {
   //genero card por cada monstruo
   createCard(ddmonster);
+  cardCounter.innerHTML++;
 }
 
 //boton
@@ -9326,11 +9328,13 @@ btn.addEventListener("click", () => {
     alert("faltan campos");
     return;
   }
+  cardCounter.innerHTML = 0;
   cardsContainer.innerHTML = "";
   for (let ddmonster of ddMonsters) {
     if (Number(ddmonster.DEX) <= dexFilter.value && Number(ddmonster.STR) <= strFilter.value && Number(ddmonster.CON) <= conFilter.value) {
       console.log(ddmonster.DEX);
       createCard(ddmonster);
+      cardCounter.innerHTML++;
     }
   }
 });
