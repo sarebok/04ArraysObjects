@@ -9304,3 +9304,28 @@ const ddMonsters = [
     img_url: "https://media-waterdeep.cursecdn.com/avatars/thumbnails/0/71/1000/1000/636252733510786769.jpeg",
   },
 ];
+
+//defino items que voy a modificar
+const cardsContainer = document.getElementById("cards-container");
+const dexFilter = document.getElementById("dex-filter");
+const conFilter = document.getElementById("con-filter");
+const strFilter = document.getElementById("str-filter");
+
+//recorro el array de los monstruos de dd
+for (let ddmonster of ddMonsters) {
+  //genero card por cada monstruo
+  createCard(ddmonster);
+}
+
+function createCard(i) {
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <P>${i.name}</P>
+  <img class="monster-image" src=${i.img_url}>
+  <p>dex ${i.DEX}</p>
+  <p>str ${i.STR}</p>
+  <p>con ${i.CON}</p>
+  `;
+  console.log(i.name);
+  cardsContainer.appendChild(div);
+}

@@ -50,7 +50,7 @@ footer {
 #con-points {
   grid-area: CON;
 }
-#monster-image {
+.monster-image {
   grid-area: img;
 }
 #str-points {
@@ -64,7 +64,7 @@ input {
 #monster-name {
   font-size: 1.5rem;
 }
-#monster-image {
+.monster-image {
   width: 200px;
 }
 
