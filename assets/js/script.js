@@ -9317,6 +9317,24 @@ for (let ddmonster of ddMonsters) {
   createCard(ddmonster);
 }
 
+//boton
+const btn = document.getElementById("input-button");
+
+btn.addEventListener("click", () => {
+  if (dexFilter.value === "" || conFilter.value === "" || strFilter.value === "") {
+    //console.log("console dentor del if" + conFilter.value);
+    alert("faltan campos");
+    return;
+  }
+  cardsContainer.innerHTML = "";
+  for (let ddmonster of ddMonsters) {
+    if (ddmonster.DEX <= dexFilter.value && ddmonster.STR <= strFilter.value && ddmonster.CON <= conFilter.value) {
+      console.log(ddmonster.DEX);
+      createCard(ddmonster);
+    }
+  }
+});
+
 function createCard(i) {
   const div = document.createElement("div");
   div.innerHTML = `
@@ -9326,13 +9344,5 @@ function createCard(i) {
   <p>str ${i.STR}</p>
   <p>con ${i.CON}</p>
   `;
-  console.log(i.name);
   cardsContainer.appendChild(div);
 }
-
-//boton
-const btn = document.getElementById("input-button");
-
-btn.addEventListener("click", () => {
-  cardsContainer.innerHTML = "";
-});
