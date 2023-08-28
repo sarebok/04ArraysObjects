@@ -9329,3 +9329,10 @@ function createCard(i) {
   console.log(i.name);
   cardsContainer.appendChild(div);
 }
+
+//boton
+const btn = document.getElementById("input-button");
+
+btn.addEventListener("click", () => {
+  cardsContainer.innerHTML = "";
+});
