@@ -25,6 +25,10 @@ aside {
   border: 1px solid black;
 }
 
+.filters-container {
+  display: flex;
+}
+
 main {
   grid-area: main;
 }
