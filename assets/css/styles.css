@@ -1,8 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Agdasima&family=Rubik+Iso&display=swap");
+
 header,
 aside,
 main,
 footer {
-  border: 1px solid black;
+  border: 1px solid #930c10;
+}
+
+h1,
+h2,
+p {
+  color: #930c10;
+}
+
+h1,
+h2 {
+  font-family: "Rubik Iso", cursive;
+  color: ;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
 }
 
 body {
@@ -12,6 +30,7 @@ body {
     "aside"
     "main"
     "footer";
+  background-color: #f7ce65;
 }
 header {
   grid-area: header;
