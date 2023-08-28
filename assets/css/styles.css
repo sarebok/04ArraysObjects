@@ -27,6 +27,7 @@ aside {
 
 .filters-container {
   display: flex;
+  align-items: center;
 }
 
 main {
