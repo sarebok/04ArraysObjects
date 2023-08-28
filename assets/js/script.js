@@ -9324,26 +9324,11 @@ function insertDataOnCard(data, htmlTemplate, templateElement, elementType, card
   }
 }
 
-//Object elements to insert in the card (testing with the first element)
-//attributes selected: name, strenght, con, img
-const selectedAttributes = [0, 3, 7, 22];
-
-//card elements
-const cardsContainer = document.getElementById("cards-container");
-//bring html template
-const monsterCardTemplate = document.getElementById("monster-card-template");
-
-//bring inputs for button usage and filtering
-const btn = document.getElementById("input-button");
-const letterFilter = document.getElementById("first-letter-filter");
-const conFilter = document.getElementById("CON-filter");
-const strFilter = document.getElementById("STR-filter");
-
-for (monster in ddMonsters) {
-  const monsterName = ddMonsters[monster].name;
-  const monsterImg = ddMonsters[monster].img_url;
-  const monsterStr = ddMonsters[monster].STR;
-  const monsterCon = ddMonsters[monster].CON;
+function addElementstoHtml(arrayElement, array) {
+  const monsterName = array[arrayElement].name;
+  const monsterImg = array[arrayElement].img_url;
+  const monsterStr = array[arrayElement].STR;
+  const monsterCon = array[arrayElement].CON;
   //crear div de la card
   const cardDiv = createTemplateClone(monsterCardTemplate).getElementById("div-card-template");
   cardsContainer.appendChild(cardDiv);
@@ -9351,9 +9336,30 @@ for (monster in ddMonsters) {
   insertDataOnCard(monsterImg, monsterCardTemplate, "monster-image", "img", cardDiv);
   insertDataOnCard(monsterStr, monsterCardTemplate, "str-points", "span", cardDiv);
   insertDataOnCard(monsterCon, monsterCardTemplate, "con-points", "span", cardDiv);
-  console.log(monsterName[0]);
 }
 
+//card elements
+const cardsContainer = document.getElementById("cards-container");
+//bring html template
+const monsterCardTemplate = document.getElementById("monster-card-template");
+
+for (monster in ddMonsters) {
+  addElementstoHtml(monster, ddMonsters);
+}
+
+//bring inputs for button usage and filtering
+const btn = document.getElementById("input-button");
+const letterFilter = document.getElementById("first-letter-filter");
+const conFilter = document.getElementById("CON-filter");
+const strFilter = document.getElementById("STR-filter");
+
 btn.addEventListener("click", () => {
-  cardContainer = "";
+  cardsContainer.innerHTML = "";
+  const letterFilterValue = letterFilter.value;
+  const conFilterValue = conFilter.value;
+  const strFilterValue = strFilter.value;
+
+  if (letterFilterValue === ddMonsters.name[0]) {
+    console.log(ddMonsters.name);
+  }
 });
