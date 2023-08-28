@@ -9328,7 +9328,7 @@ btn.addEventListener("click", () => {
   }
   cardsContainer.innerHTML = "";
   for (let ddmonster of ddMonsters) {
-    if (ddmonster.DEX <= dexFilter.value && ddmonster.STR <= strFilter.value && ddmonster.CON <= conFilter.value) {
+    if (Number(ddmonster.DEX) <= dexFilter.value && Number(ddmonster.STR) <= strFilter.value && Number(ddmonster.CON) <= conFilter.value) {
       console.log(ddmonster.DEX);
       createCard(ddmonster);
     }
