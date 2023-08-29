@@ -9313,6 +9313,19 @@ const conFilter = document.getElementById("con-filter");
 const strFilter = document.getElementById("str-filter");
 let cardCounter = document.getElementById("card-counter");
 
+//funcion createCard. aqui solo estoy probando cómo funcionan siendo del tipo flecha. finalmente funcionan igual, y en mi caso encuentro mucho mas ordenado usar function y poder dejarlas abajo de todo sin complicar la lectura del codigo, pero bue
+const createCard = (i) => {
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <P class="monster-name">${i.name}</P>
+  <img class="monster-image" src=${i.img_url}>
+  <p>dex ${i.DEX}</p>
+  <p>str ${i.STR}</p>
+  <p>con ${i.CON}</p>
+  `;
+  cardsContainer.appendChild(div);
+};
+
 //recorro el array de los monstruos de dd
 for (let ddmonster of ddMonsters) {
   //genero card por cada monstruo
@@ -9345,7 +9358,7 @@ btn.addEventListener("click", () => {
   }
 });
 
-function createCard(i) {
+/* function createCard(i) {
   const div = document.createElement("div");
   div.innerHTML = `
   <P class="monster-name">${i.name}</P>
@@ -9355,4 +9368,4 @@ function createCard(i) {
   <p>con ${i.CON}</p>
   `;
   cardsContainer.appendChild(div);
-}
+} */
