@@ -9307,7 +9307,8 @@ const ddMonsters = [
 
 //defino items que voy a modificar
 const cardsContainer = document.getElementById("cards-container");
-const dexFilter = document.getElementById("dex-filter");
+const minDexFilter = document.getElementById("min-dex-filter");
+const maxDexFilter = document.getElementById("max-dex-filter");
 const conFilter = document.getElementById("con-filter");
 const strFilter = document.getElementById("str-filter");
 let cardCounter = document.getElementById("card-counter");
@@ -9323,7 +9324,7 @@ for (let ddmonster of ddMonsters) {
 const btn = document.getElementById("input-button");
 
 btn.addEventListener("click", () => {
-  if (dexFilter.value === "" || conFilter.value === "" || strFilter.value === "") {
+  if (minDexFilter.value === "" || maxDexFilter.value === "" || conFilter.value === "" || strFilter.value === "") {
     //console.log("console dentor del if" + conFilter.value);
     alert("faltan campos");
     return;
@@ -9331,7 +9332,12 @@ btn.addEventListener("click", () => {
   cardCounter.innerHTML = 0;
   cardsContainer.innerHTML = "";
   for (let ddmonster of ddMonsters) {
-    if (Number(ddmonster.DEX) <= dexFilter.value && Number(ddmonster.STR) <= strFilter.value && Number(ddmonster.CON) <= conFilter.value) {
+    if (
+      Number(ddmonster.DEX) > minDexFilter.value &&
+      Number(ddmonster.DEX) <= maxDexFilter.value &&
+      Number(ddmonster.STR) <= strFilter.value &&
+      Number(ddmonster.CON) <= conFilter.value
+    ) {
       console.log(ddmonster.DEX);
       createCard(ddmonster);
       cardCounter.innerHTML++;

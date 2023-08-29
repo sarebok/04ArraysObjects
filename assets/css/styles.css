@@ -49,6 +49,15 @@ aside {
   align-items: center;
 }
 
+.dex-filter-container {
+  background-color: #930c10;
+  padding: 1rem;
+}
+
+.dex-filter-container p {
+  color: #f7ce65;
+}
+
 main {
   grid-area: main;
 }
